@@ -2,7 +2,7 @@
 
 /**
  * main - fibonacci <3
- * 
+ *
  * purpose - no hardcode
  *
  * Return: Always 0
