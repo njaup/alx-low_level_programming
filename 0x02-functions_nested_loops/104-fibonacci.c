@@ -7,6 +7,7 @@
  */
 
 int main(void)
+
 {
 	int count;
 	unsigned long fib1 = 0, fib2 = 1, sum;
@@ -43,5 +44,5 @@ int main(void)
 	}
 	printf("\n");
 	return (0);
-}
 
+}
