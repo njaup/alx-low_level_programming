@@ -1,4 +1,4 @@
-#include "main. h"
+#include "main.h"
 
 
 /**
@@ -7,7 +7,9 @@
  * @b: second integer
  * Return: results of the multiplication
  */
+
 int mul(int a, int b)
+
 {
 	return (a * b);
 }
