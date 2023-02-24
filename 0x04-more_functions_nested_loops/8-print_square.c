@@ -5,10 +5,25 @@
  *
  * Return: Always 0
  */
-int main(void)
+
+void print_square(int size)
+
 {
-	print_square(2);
-	print_square(10);
-	print_square(0);
-	return (0);
+	int x, y;
+
+	if (size <= 0)
+	{
+	_putchar('\n');
+	}
+	else
+	{
+	for (x = 0; x < size; x++)
+	{
+	for (y = 0; y < size; y++)
+	{
+	_putchar(35);
+	}
+	_putchar('\n');
+	}
+	}
 }
