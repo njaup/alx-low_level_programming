@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * main - check the code
+ * print_square - prints n squares according to n number of times
+ * @size: The number of squares/number of times
  *
- * Return: Always 0
+ * Return: empty
  */
 
 void print_square(int size)
