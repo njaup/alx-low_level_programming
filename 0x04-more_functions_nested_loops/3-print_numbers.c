@@ -2,7 +2,6 @@
 
 /**
  * print_numbers - print the numbers from 0 to 9
- * @x: The numbers to be checked
  * Return: 0 to 9
  */
 
