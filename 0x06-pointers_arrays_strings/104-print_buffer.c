@@ -5,7 +5,6 @@
  * print_buffer - prints a buffer 10 bytes at a time
  * @size: the number of bytes to be printed from the buffer
  * @b: buffer
- * Return: void
  */
 void print_buffer(char *b, int size)
 {
@@ -21,20 +20,22 @@ void print_buffer(char *b, int size)
 				printf(" ");
 
 			else
-				printf("%02x", *(b + byte + i));
+				printf("%02x", *(b + i + byte));
 
 			if ((i % 2) != 0 && i != 0)
 				printf(" ");
 
 		}
+
 		for (i = 0; i < 10; i++)
 		{
 			if ((i + byte) >= size)
 				break;
 
 			else if (*(b + i + byte) >= 31 &&
-				*(b + i + byte) <= 126)
-				printf("%c", *(b + byte + i));
+				 *(b + i + byte) <= 126)
+				printf("%c", *(b + i + byte));
+
 			else
 				printf(".");
 		}
