@@ -1,11 +1,9 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * print_buffer - prints a buffer 10 bytes at a time
  * @size: the number of bytes to be printed from the buffer
  * @b: buffer
- * Return: void
  */
 
 void print_buffer(char *b, int size)
@@ -22,7 +20,7 @@ void print_buffer(char *b, int size)
 	while (byte < size)
 	{
 		j = size - byte < 10 ? size - byte : 10;
-			printf("%08x: ", byte);
+		printf("%08x: ", byte);
 		for (i = 0; i < 10; i++)
 		{
 			if (i < j)
@@ -36,13 +34,13 @@ void print_buffer(char *b, int size)
 		}
 		for (i = 0; i < j; i++)
 		{
-			int c = *(b + byte + i);
+			int C = *(b + byte + i);
 
-			if (c < 32 || c > 132)
+			if (C < 32 || C > 132)
 			{
-				c = '.';
+				C = '.';
 			}
-			printf("%c", c);
+			printf("%c", C);
 		}
 		printf("\n");
 		byte += 10;
