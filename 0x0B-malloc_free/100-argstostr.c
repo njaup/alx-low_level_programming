@@ -13,6 +13,9 @@ char *argstostr(int ac, char **av)
 	int i, j, k, len;
 	char *str;
 
+	k = 0;
+	len = 0;
+
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
