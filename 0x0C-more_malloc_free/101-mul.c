@@ -49,13 +49,13 @@ char *_initialize_array(char *ar, int lar)
 }
 
 /**
- * _checknum - determines length of the number
+ * check_num - determines length of the number
  * and checks if the number is in base 10
  * @argv: arguments
  * @n: row of the array
  * Return: length of the number
  */
-int _checknum(char *argv[], int n)
+int check_num(char *argv[], int n)
 {
 	int ln;
 
@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 		printf("Error\n"), exit(98);
-	ln1 = _checknum(argv, 1), ln2 = _checknum(argv, 2);
+	ln1 = check_num(argv, 1), ln2 = check_num(argv, 2);
 	_is_zero(argv), lnout = ln1 + ln2, nout = malloc(lnout + 1);
 	if (nout == NULL)
 		printf("Error\n"), exit(98);
