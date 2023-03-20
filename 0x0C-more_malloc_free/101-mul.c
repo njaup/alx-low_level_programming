@@ -8,6 +8,7 @@
  * @argv: arguments
  * Return: no return
  */
+
 void _is_zero(char *argv[])
 {
 	int i, isn1 = 1, isn2 = 1;
@@ -18,7 +19,6 @@ void _is_zero(char *argv[])
 			isn1 = 0;
 			break;
 		}
-
 	for (i = 0; argv[2][i]; i++)
 		if (argv[2][i] != '0')
 		{
@@ -38,6 +38,7 @@ void _is_zero(char *argv[])
  * @lar: length of the array
  * Return: pointer
  */
+
 char *_initialize_array(char *ar, int lar)
 {
 	int i = 0;
@@ -55,6 +56,7 @@ char *_initialize_array(char *ar, int lar)
  * @n: row of the array
  * Return: length of the number
  */
+
 int check_num(char *argv[], int n)
 {
 	int ln;
