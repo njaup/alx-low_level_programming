@@ -18,17 +18,19 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 	bytes = atoi(argv[1]);
+
 	if (bytes < 0)
 	{
 		printf("Error\n");
 		exit(2);
 	}
 	arr = (char *)main;
+
 	for (i = 0; i < bytes; i++)
 	{
-		if (i == bytes -1)
+		if (i == bytes - 1)
 		{
-			printf("%2hhx\n", arr[i]);
+			printf("%02hhx\n", arr[i]);
 			break;
 		}
 		printf("%02hhx ", arr[i]);
