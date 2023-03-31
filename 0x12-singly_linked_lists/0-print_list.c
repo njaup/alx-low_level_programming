@@ -3,9 +3,9 @@
 #include <stdlib.h>
 
 /**
- * print_list - prints all the elements of a list_t list
- * @h: list_t list
- * Return: the number of nodes in h
+ * print_list - prints all the elements of a limited list
+ * @h: pointer to the list_t list to print
+ * Return: the number of nodes printed
  */
 size_t print_list(const list_t *h)
 {
@@ -13,11 +13,10 @@ size_t print_list(const list_t *h)
 
 	while (h)
 	{
-		if (h->str == NULL)
+		if (!h->str)
 			printf("[0] (nil)\n");
-
 		else
-			printf("[%d] %s\n", h->len, h->str);
+			printf("[%u] %s\n", h->len, h->str);
 
 		nodes++;
 		h = h->next;
