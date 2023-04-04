@@ -9,19 +9,34 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t count = 0;
+	 size_t count = 0;
+        const listint_t *slow = head, *fast = head;
 
-	while (head != NULL)
-	{
-		printf("%d\n", head->n);
-		head = head->next;
-		count++;
-		if (count > 100)
-		{
-			printf("warning: lists is too long, stopping at 100 nodes.\n");
-			break;
-		}
-	}
+        while (slow && fast && fast->next)
+        {
+                printf("[%p] %d\n", (void *)slow, slow->n);
+                count++;
+                slow = slow->next;
+                fast = fast->next->next;
 
-	return (count);
+                if (slow == fast)
+                {
+                        printf("[%p] %d\n", (void *)slow, slow->n);
+                        printf("-> [%p] %d\n", (void *)slow->next, slow->next->n);
+                        break;
+                }
+        }
+
+        if (!slow || !fast || !fast->next)
+
+        {
+                while (head)
+                {
+                        printf("[%p] %d\n", (void *)head, head->n);
+                        count++;
+                        head = head->next;
+                }
+        }
+
+        return (count);
 }
