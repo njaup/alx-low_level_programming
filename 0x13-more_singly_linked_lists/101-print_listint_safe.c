@@ -27,15 +27,16 @@ size_t print_listint_safe(const listint_t *head)
 		}
 	}
 
-		if (!slow || !fast || !fast->next)
-		{
-			while (head)
-			{
-				printf("[%p] %d\n", (void *)head, head->n);
-				count++;
-				head = head->next;
-			}
-		}
+	if (!slow || !fast || !fast->next)
 
-		return (count);
+	{
+		while (head)
+		{
+			printf("[%p] %d\n", (void *)head, head->n);
+			count++;
+			head = head->next;
+		}
+	}
+
+	return (count);
 }
