@@ -14,7 +14,7 @@ size_t print_listint(const listint_t *h)
 	size_t tally;
 
 	tally = 0;
-	while (current != NULL)
+	while (current)
 	{
 		printf("%d", current->n);
 		printf("\n");
