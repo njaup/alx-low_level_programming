@@ -10,11 +10,11 @@
  */
 size_t print_listint(const listint_t *h)
 {
-	const listint_t *current = h;
 	size_t tally;
+	const listint_t *current = h;
 
 	tally = 0;
-	while (current)
+	while (current != NULL)
 	{
 		printf("%d", current->n);
 		printf("\n");
