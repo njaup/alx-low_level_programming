@@ -10,17 +10,17 @@
  */
 int check_num(char *str)
 {
-	unsigned int count;
+	unsigned int tally;
 
-	count = 0;
-	while (count < strlen(str))
+	tally = 0;
+	while (tally < strlen(str))
 
 	{
-		if (!isdigit(str[count]))
+		if (!isdigit(str[tally]))
 		{
 			return (0);
 		}
-		count++;
+		tally++;
 	}
 	return (1);
 }
@@ -33,25 +33,27 @@ int check_num(char *str)
  */
 int main(int argc, char *argv[])
 {
-	int count;
+	int tally;
 	int str_to_int;
-	int sum = 0;
+	int total = 0;
 
-	count = 1;
-	while (count < argc)
+	tally = 1;
+	while (tally < argc)
 	{
-		if (check_num(argv[count]))
+		if (check_num(argv[tally]))
 		{
-			str_to_int = atoi(argv[count]);
-			sum += str_to_int;
+			str_to_int = atoi(argv[tally]);
+			total += str_to_int;
 		}
 		else
 		{
-			printf("Error\n");
+			printf("Error");
+			printf("\n");
 			return (1);
 		}
-		count++;
+		tally++;
 	}
-	printf("%d\n", sum);
+	printf("%d", total);
+	printf("\n");
 	return (0);
 }
