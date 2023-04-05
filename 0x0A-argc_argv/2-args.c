@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * main - prints all arguments it receives
@@ -9,14 +10,15 @@
  */
 int main(int argc, char *argv[])
 {
-	int count = 0;
+	int tally = 0;
 
 	if (argc > 0)
 	{
-		while (count < argc)
+		while (tally < argc)
 		{
-			printf("%s\n", argv[count]);
-			count++;
+			printf("%s", argv[tally]);
+			printf("\n");
+			tally++;
 		}
 	}
 	return (0);
