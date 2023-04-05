@@ -10,22 +10,23 @@
  */
 int pop_listint(listint_t **head)
 {
-	int data = 0;
-	listint_t *temp = NULL;
+	int value;
+	listint_t *node = NULL;
 
+	value = 0;
 	if (*head == NULL)
 	{
 
-	return (data); /*if the list is empty*/
+	return (value);
 
 	}
 
-	data = (*head)->n; /*retrieve the data from the head node*/
-	temp = *head; /*save the head node pointer*/
+	value= (*head)->n;
+	node = *head;
 
-	*head = (*head)->next; /*move the head to the next node*/
-	free(temp); /*free the memory of the original head node*/
+	*head = (*head)->next;
+	free(node);
 
-	return (data); /*return the data value of the original head node*/
+	return (value);
 
 }
