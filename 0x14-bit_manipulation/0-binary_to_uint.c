@@ -11,15 +11,23 @@
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int digit = 0;
-	int length = strlen(b);
-	int count;
+	int count = 0;
 
-	for (count = 0; count < length; count++)
+
+	while (b[count])
 	{
 		if (b[count] == '1')
-		{
-			digit += (1 << (length - count - 1));
-		}
+
+			digit = (digit << 1) | 1;
+
+		else if (b[count] == '0')
+
+		digit <<= 1;
+
+		else
+
+		return (0);
+		count++;
 	}
 	return (digit);
 }
