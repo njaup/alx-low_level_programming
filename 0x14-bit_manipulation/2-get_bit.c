@@ -19,3 +19,15 @@ int get_bit(unsigned long int n, unsigned int index)
 	}
 	return (0);
 }
+
+int main()
+{
+	unsigned long int n = 218;
+	unsigned int i = 3;
+
+	int binary = get_bit(n, i);
+	printf("Binary %u of %lu is %d", i, n, binary);
+	printf("\n");
+
+	return (0);
+}
