@@ -13,7 +13,6 @@ unsigned int binary_to_uint(const char *b)
 	unsigned int digit = 0;
 	int count = 0;
 
-
 	while (b[count])
 	{
 		if (b[count] == '1')

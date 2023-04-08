@@ -8,10 +8,34 @@
  */
 void print_binary(unsigned long int n)
 {
-	int bitpos;
+	int bitpos = sizeof(n) * 8;
+	unsigned long int binary = 1UL << (bitpos - 1);
 
-	for (bitpos = 32; bitpos >= 0; bitpos--)
+	for (int count = 0; count < bitpos; count++)
 	{
-		printf("%ld\n", (n >> bitpos) & 1);
+		if ((n & binary) == 0)
+		{
+			printf("1");
+		}
+		else
+		{
+			printf("0");
+		}
+		binary >>= 1;
 	}
+
+}
+
+/**
+ * main - prints the binary representation of a number
+ * @digit: binary number
+ * Return: 0
+ */
+int main(void)
+{
+	unsigned long int digit = 25;
+
+	printf("Binary rep of %lu is: \n", digit);
+	print_binary(digit);
+	return (0);
 }
