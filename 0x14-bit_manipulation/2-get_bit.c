@@ -1,17 +1,18 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * get_bit - returns the value of a bit at a given index
  * @n: integer value
- * @i: index
+ * @index: bit value
  * Return: the value of the bit at index index
  * or -1 if an error occured
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned long int bit = n >> i;
+	unsigned long int bit = n >> index;
 
 	if (bit & 1)
 	{
@@ -20,13 +21,18 @@ int get_bit(unsigned long int n, unsigned int index)
 	return (0);
 }
 
-int main()
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
 {
 	unsigned long int n = 218;
-	unsigned int i = 3;
+	unsigned int index = 3;
+	int binary = get_bit(n, index);
 
-	int binary = get_bit(n, i);
-	printf("Binary %u of %lu is %d", i, n, binary);
+	printf("Binary %u of %lu is %d", index, n, binary);
 	printf("\n");
 
 	return (0);
