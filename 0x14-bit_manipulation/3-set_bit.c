@@ -3,7 +3,8 @@
 #include <stdlib.h>
 
 /**
- * set_bit - function that sets the value of a bit to 1 at a given index
+ * set_bit - function that sets the value of a bit
+ * to 1 at a given index
  * @n: integer value
  * @index: the input
  * Return: 1 if it worked, or -1 if an error occurred
