@@ -1,7 +1,5 @@
 #include "main.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 /**
  * get_bit - returns the value of a bit at a given index
@@ -12,9 +10,9 @@
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned long int bit = n >> index;
+	unsigned long int mask = n >> index;
 
-	if (bit & 1)
+	if (mask & 1)
 	{
 		return (1);
 	}
@@ -30,10 +28,9 @@ int main(void)
 {
 	unsigned long int n = 218;
 	unsigned int index = 3;
-	int binary = get_bit(n, index);
+	int bit = get_bit(n, index);
 
-	printf("Binary %u of %lu is %d", index, n, binary);
-	printf("\n");
+	printf("Bit %u of %lu is %d\n", index, n, bit);
 
 	return (0);
 }
