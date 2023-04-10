@@ -16,12 +16,12 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *fp;
+	FILE *fo;
 	char *bul;
-	size_t data;
+	ssize_t data;
 
-	fp = fopen(filename, "r");
-	if (fp == 0)
+	fo = fopen(filename, "r");
+	if (fo == 0)
 	{
 		perror("Error opening file");
 		return (-1);
@@ -30,14 +30,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (bul == 0)
 	{
 		perror("Error reading file");
-		fclose(fp);
+		fclose(fo);
 		return (-1);
 	}
-	data = fread(bul, 1, letters, fp);
+	data = fread(bul, 1, letters, fo);
 	bul[data] = '\0';
 	printf("%s", bul);
 
 	free(bul);
-	fclose(fp);
+	fclose(fo);
 	return (data);
 }
