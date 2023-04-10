@@ -24,14 +24,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (fo == 0)
 	{
 		perror("Error opening file");
-		return (-1);
+		return (0);
 	}
 	bul = malloc(letters + 1);
 	if (bul == 0)
 	{
 		perror("Error reading file");
 		fclose(fo);
-		return (-1);
+		return (0);
 	}
 	data = fread(bul, 1, letters, fo);
 	bul[data] = '\0';
