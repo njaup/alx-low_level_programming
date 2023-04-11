@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		printf("usage: cp file_from file_to");
+		printf("Usage: cp file_from file_to");
 		printf("\n");
 
 		return (1);
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
 	if (file_from == NULL)
 	{
-		printf("error opening source");
+		printf("Error opening source.");
 		printf("\n");
 
 		return (1);
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 
 	if (file_to == NULL)
 	{
-		printf("error opening destination");
+		printf("Error opening destination.");
 		fclose(file_from);
 
 		return (1);
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 	}
 	fclose(file_from);
 	fclose(file_to);
-	printf("file copied");
+	printf("file copied.");
 	printf("\n");
 
 	return (0);
