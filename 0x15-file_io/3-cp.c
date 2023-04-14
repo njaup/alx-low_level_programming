@@ -4,13 +4,13 @@
 /**
  * main - copies the content of a file to another file
  * @argc: arguments
- * @argv: arguments points to the string
+ * @argv: an array of arguments
  * Return: if file_to already exists, truncate it
  */
 int main(int argc, char *argv[])
 {
 	FILE *file_from, *file_to;
-	int cp;
+	char cp;
 
 	if (argc != 3)
 	{
