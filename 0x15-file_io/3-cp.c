@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
 	if (file_from == NULL)
 	{
-		printf("Error: opening source");
+		printf("Error: Can't read from file");
 		printf("\n");
 
 		return (1);
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 
 	if (file_to == NULL)
 	{
-		printf("Error: opening destination");
+		printf("Error: Can't write to file");
 		printf("\n");
 		fclose(file_from);
 
@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 	}
 	fclose(file_from);
 	fclose(file_to);
-	printf("file copied");
+	printf("Can't close fd");
 	printf("\n");
 
 	return (0);
