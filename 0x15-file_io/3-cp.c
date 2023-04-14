@@ -4,7 +4,7 @@
 /**
  * main - copies the content of a file to another file
  * @argc: arguments
- * @argv[]: arguments points to the string
+ * @argv: arguments points to the string
  * Return: if file_to already exists, truncate it
  */
 int main(int argc, char *argv[])
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
 	if (file_from == NULL)
 	{
-		printf("Error opening source.");
+		printf("Error: opening source");
 		printf("\n");
 
 		return (1);
@@ -32,7 +32,8 @@ int main(int argc, char *argv[])
 
 	if (file_to == NULL)
 	{
-		printf("Error opening destination.");
+		printf("Error: opening destination");
+		printf("\n");
 		fclose(file_from);
 
 		return (1);
@@ -43,7 +44,7 @@ int main(int argc, char *argv[])
 	}
 	fclose(file_from);
 	fclose(file_to);
-	printf("file copied.");
+	printf("file copied");
 	printf("\n");
 
 	return (0);
