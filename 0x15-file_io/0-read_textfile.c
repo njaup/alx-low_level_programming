@@ -2,6 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
+#include <string.h>
+#include <unistd.h>
+#include <errno.h>
+#include <fcntl.h>
 
 /**
  * read_textfile - function that reads a text file and prints
@@ -16,28 +20,35 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *fo;
-	char *bul;
-	ssize_t data;
+	int fd = open(filename, O_RDONLY);
+	char buffer[1024];
+	ssize_t bytes_read, bytes_written;
 
-	fo = fopen(filename, "r");
-	if (fo == NULL)
+	if (filename == NULL)
 	{
-		perror("Error opening file");
 		return (0);
 	}
-	bul = malloc(letters + 1);
-	if (bul == NULL)
+
+	if (fd == -1)
 	{
-		perror("Error reading file");
-		fclose(fo);
 		return (0);
 	}
-	data = fread(bul, 1, letters, fo);
-	bul[data] = '\0';
-	printf("%s", bul);
+	bytes_read = read(fd, buffer, sizeof(char) * letters);
 
-	free(bul);
-	fclose(fo);
-	return (data);
+	if (bytes_read == -1)
+	{
+		close(fd);
+		return (0);
+	}
+
+	bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
+
+	if (bytes_written == -1 || bytes_written != bytes_read)
+	{
+		close(fd);
+		return (0);
+	}
+
+	close(fd);
+	return (bytes_read);
 }
