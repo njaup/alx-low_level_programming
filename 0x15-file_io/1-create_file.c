@@ -18,28 +18,28 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+	int fdesc = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 
 	if (filename == NULL)
 	{
 		return (-1);
 	}
-	if (fd == -1)
+	if (fdesc == -1)
 	{
 		return (-1);
 	}
 	if (text_content != NULL)
 	{
-		ssize_t len = strlen(text_content);
-		ssize_t written = write(fd, text_content, len);
+		ssize_t length = strlen(text_content);
+		ssize_t written = write(fdesc, text_content, length);
 
-		if (written != len)
+		if (written != length)
 		{
-			close(fd);
+			close(fdesc);
 			return (-1);
 		}
 	}
 
-	close(fd);
+	close(fdesc);
 	return (1);
 }
