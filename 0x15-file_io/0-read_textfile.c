@@ -27,7 +27,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 	bul = malloc(letters + 1);
-	if (bul == 0)
+	if (bul == NULL)
 	{
 		perror("Error reading file");
 		fclose(fo);
@@ -39,5 +39,5 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	free(bul);
 	fclose(fo);
-	return (data);
+	return data;
 }
