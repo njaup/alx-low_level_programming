@@ -1,6 +1,11 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <unistd.h>
 
 /**
  * create_file - function that creates a file
@@ -13,22 +18,30 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	FILE *f = fopen(filename, "write");
+	int fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 
-	if (f == 0)
+	if (filename == NULL)
 	{
-		perror("Error opening");
 		return (-1);
 	}
-	if (fprintf(f, "%s", text_content) < 0)
+
+	if (fd == -1)
 	{
-		perror("Error writing");
-		return (1);
-	}
-	if (fclose(f) != 0)
-	{
-		perror("Error closing");
 		return (-1);
 	}
+
+	if (text_content != NULL)
+	{
+		ssize_t len = strlen(text_content);
+		ssize_t written = write(fd, text_content, len);
+
+		if (written != len)
+		{
+			close(fd);
+			return (-1);
+		}
+	}
+	
+	close(fd);
 	return (1);
 }
