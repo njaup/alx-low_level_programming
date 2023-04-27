@@ -14,20 +14,30 @@
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
-	FILE *f = fopen(filename, "app");
-	int l = strlen(text_content);
-	int bits = fwrite(text_content, 1, l, f);
+	int len = strlen(text_content);
+	FILE *fp = fopen(filename, "a");
 
-	if (!f)
+	if (filename == NULL)
 	{
 		return (-1);
 	}
 
-	fclose(f);
-	if (bits < l)
+	if (text_content == NULL)
+	{
+		return (1);
+	}
+
+	if (fp == NULL)
 	{
 		return (-1);
 	}
- 
+
+	if ((int)fwrite(text_content, sizeof(char), len, fp) != len)
+	{
+		fclose(fp);
+		return (-1);
+	}
+
+	fclose(fp);
 	return (1);
 }
