@@ -15,29 +15,25 @@
 int append_text_to_file(const char *filename, char *text_content)
 {
 	FILE *fp = fopen(filename, "a");
-	int len = strlen(text_content);
+	int length = strlen(text_content);
 
 	if (filename == NULL)
 	{
 		return (-1);
 	}
-
 	if (text_content == NULL)
 	{
 		return (1);
 	}
-
 	if (fp == NULL)
 	{
 		return (-1);
 	}
-
-	if ((int)fwrite(text_content, sizeof(char), len, fp) != len)
+	if ((int)fwrite(text_content, sizeof(char), length, fp) != length)
 	{
 		fclose(fp);
 		return (-1);
 	}
-
 	fclose(fp);
 	return (1);
 }
