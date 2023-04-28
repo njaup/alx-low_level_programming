@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 	int fd_f, fd_t, b_read, b_written;
 	char buffer[BUFFER_SIZE];
 
-	if (argc == 3)
+	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "usage: %s file_from file_to\n", argv[0]);
 		exit(97);
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 	while ((b_read = read(fd_f, buffer, BUFFER_SIZE)) > 0)
 	{
 		b_written = write(fd_t, buffer, b_read);
-		if (b_written == b_read)
+		if (b_written != b_read)
 		{
 			print_error(99, "Error: cant write to %s\n", argv[2], fd_f);
 		}
