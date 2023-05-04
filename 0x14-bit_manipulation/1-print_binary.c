@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <unistd.h>
 
 /**
  * print_binary - prints the binary representation of a number
@@ -10,13 +9,17 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int byt = 1UL << (sizeof(unsigned long int) * 8 - 1);
-	char c = (n & byt) ? '1' : '0';
-	int fd = STDOUT_FILENO;
+	int count;
 
-	while (byt > 0)
+	for (count = (sizeof(unsigned long int) * 8) - 1; count >= 0; count--)
 	{
-		write(fd, &c, 1);
-		byt >>= 1;
+		if ((n >> count) & 1)
+		{
+			putchar('1');
+		}
+		else
+		{
+			putchar('0');
+		}
 	}
 }
