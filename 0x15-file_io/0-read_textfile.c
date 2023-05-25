@@ -13,33 +13,43 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *file;
-	char buffer[MAX_BUFFER_SIZE];
-	ssize_t sum_byt_w = 0;
-	size_t byt_r;
-
-	file = fopen(filename, "r");
+	FILE *file = fopen(filename, "r");
+	char *buffer = (char *)malloc(letters + 1);
+	ssize_t bytesRead = fread(buffer, sizeof(char), letters, file);
+	ssize_t bytesWritten = fwrite(buffer, sizeof(char), bytesRead, stdout);
 
 	if (filename == NULL)
 	{
 		return (0);
 	}
+
 	if (file == NULL)
 	{
 		return (0);
 	}
-	while ((byt_r = fread(buffer, 1, sizeof(buffer), file)) > 0)
+
+	if (buffer == NULL)
 	{
-		ssize_t byt_w = write(STDOUT_FILENO, buffer, byt_r);
-		if (byt_w == -1 || (size_t) byt_w != byt_r)
-		{
-			fclose(file);
-			return (0);
-		}
-		sum_byt_w += byt_w;
-		if (sum_byt_w >= (ssize_t) letters)
-			break;
+		fclose(file);
+		return (0);
+	}
+
+	if (bytesRead <= 0)
+	{
+		fclose(file);
+		free(buffer);
+		return (0);
+	}
+
+	buffer[bytesRead] = '\0';
+
+	if (bytesWritten != bytesRead)
+	{
+		fclose(file);
+		free(buffer);
+		return (0);
 	}
 	fclose(file);
-	return (sum_byt_w);
+	free(buffer);
+	return (bytesWritten);
 }
