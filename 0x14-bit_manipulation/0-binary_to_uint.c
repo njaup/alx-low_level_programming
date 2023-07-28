@@ -10,13 +10,15 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	size_t length = strlen(b);
+	int index;
+	size_t length;
 	unsigned int total = 0;
 	unsigned int rate = 1;
-	int index;
 
 	if (b == NULL)
 		return (0);
+	
+	length = strlen(b);
 
 	for (index = length - 1; index >= 0; index--)
 	{
