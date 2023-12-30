@@ -9,26 +9,26 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int filed;
+	int fdescript;
 	ssize_t nread, nwrite;
 	char *buffer;
 
 	if (!filename)
 		return (0);
 
-	filed = open(filename, O_RDONLY);
+	fdescript = open(filename, O_RDONLY);
 
-	if (filed == -1)
+	if (fdescript == -1)
 		return (0);
 
 	buffer = malloc(sizeof(char) * (letters));
 	if (!buffer)
 		return (0);
 
-	nread = read(filed, buffer, letters);
+	nread = read(fdescript, buffer, letters);
 	nwrite = write(STDOUT_FILENO, buffer, nread);
 
-	close(filed);
+	close(fdescript);
 
 	free(buffer);
 
