@@ -10,16 +10,15 @@
 void print_binary(unsigned long int n)
 {
 	int size = sizeof(unsigned long int) * 8;
-	int index = 0;
+	int index;
 
-	for (int count = size - 1; count >= 0; count--)
+	for (index = size - 1; index >= 0; index--)
 	{
-		if ((n >> count) & 1)
+		if ((n >> index) & 1)
 		{
 			putchar('1');
-			index++;
 		}
-		else if (index > 0 || count == 0)
+		else if (index == 0)
 		{
 			putchar('0');
 		}
